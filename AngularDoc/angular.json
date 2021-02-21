@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Property-Binding"
+    }
+  },
+  "defaultProject": "Property-Binding",
+  "cli": {
+    "analytics": "36f67582-d950-491c-9b00-2dde00964c97"
+  }
 }
