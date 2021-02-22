@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class ListComponent implements OnInit {
 
   listas = [
-    { nome:"edy"},
-    { nome:"lu"},
-    { nome:"miguel"}
+    { id: 1, nome:"edy"},
+    { id: 2, nome:"lu"},
+    { id: 3, nome:"miguel"}
 ];
 
 

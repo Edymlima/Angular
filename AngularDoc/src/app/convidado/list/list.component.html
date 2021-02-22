@@ -1,7 +1,21 @@
 <p>Convidados</p>
 
-<ul>
-  <li *ngFor="let lista of listas"  >
-    {{lista.nome}}
-  </li>
-</ul>
+<table border="0">
+
+ <th>Id</th>
+ <th>Nome</th>
+ <th>Editar</th>
+ <th>Excluir</th>
+
+    <tr *ngFor="let lista of listas" >
+      <td>{{lista.id}}</td>
+      <td width="100px">{{lista.nome}}</td>
+      <td>
+        <a routerLink="/edit/{{lista.id}}" routerLinkActive > Edit </a>
+      </td>
+      <td>
+        <a routerLink="/del/{{lista.id}}" routerLinkActive > Excluir </a>
+      </td>
+    </tr>
+
+</table>
