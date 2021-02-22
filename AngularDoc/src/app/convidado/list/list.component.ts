@@ -1,3 +1,5 @@
+import { ConvidadoService } from './../services/convidado.service';
+import { Convidados } from './../model/convidado';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,16 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  listas = [
-    { id: 1, nome:"edy"},
-    { id: 2, nome:"lu"},
-    { id: 3, nome:"miguel"}
-];
+  listas : Convidados[] = [];
 
 
-  constructor() { }
+  constructor(private convidadoService: ConvidadoService) { }
 
   ngOnInit(): void {
+
+    this.convidadoService.getAll().subscribe((data : Convidados[])=>{
+      console.log(data);
+      this.listas = data;
+    })
+
   }
 
 }

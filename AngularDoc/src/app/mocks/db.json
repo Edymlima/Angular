@@ -1,0 +1,16 @@
+{
+  "convidados": [
+    {
+      "id": 1,
+      "nome": "edy"
+    },
+    {
+      "id": 2,
+      "nome": "lu"
+    },
+    {
+      "id": 3,
+      "nome": "miguel"
+    }
+  ]
+}

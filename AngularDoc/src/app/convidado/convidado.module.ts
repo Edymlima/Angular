@@ -6,14 +6,18 @@ import { ListComponent } from './list/list.component';
 import { EditComponent } from './edit/edit.component';
 import { HomeComponent } from './home/home.component';
 import { DelComponent } from './del/del.component';
+import { CreateComponent } from './create/create.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
 @NgModule({
-  declarations: [HeadComponent, ListComponent, EditComponent, HomeComponent, DelComponent],
+  declarations: [HeadComponent, ListComponent, EditComponent, HomeComponent, DelComponent, CreateComponent],
   imports: [
     CommonModule,
-    ConvidadoRoutes
+    ConvidadoRoutes,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ConvidadoModule { }

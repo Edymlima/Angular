@@ -10,6 +10,8 @@ export class EditComponent implements OnInit {
 
   selectId: number = 0;
 
+  convidado = {};
+
   constructor(private parametro : ActivatedRoute) { }
 
   ngOnInit(): void {

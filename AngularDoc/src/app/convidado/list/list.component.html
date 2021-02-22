@@ -4,17 +4,17 @@
 
  <th>Id</th>
  <th>Nome</th>
- <th>Editar</th>
- <th>Excluir</th>
+ <th colSpan="2" align='center'>Ação</th>
+
 
     <tr *ngFor="let lista of listas" >
       <td>{{lista.id}}</td>
       <td width="100px">{{lista.nome}}</td>
       <td>
-        <a routerLink="/edit/{{lista.id}}" routerLinkActive > Edit </a>
+        <a routerLink="/edit/{{lista.id}}" routerLinkActive > <img src="../../../assets/img/edit.png"> </a>
       </td>
       <td>
-        <a routerLink="/del/{{lista.id}}" routerLinkActive > Excluir </a>
+        <a routerLink="/del/{{lista.id}}" routerLinkActive > <img src="../../../assets/img/excluir.png"> </a>
       </td>
     </tr>
 
