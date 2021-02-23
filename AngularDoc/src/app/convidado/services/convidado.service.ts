@@ -25,6 +25,13 @@ export class ConvidadoService {
     )
   }
 
+  getId(id): Observable<Convidados> {
+    return this.http.get<Convidados>(this.apiServer + `/convidados/${id}`)
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
+
   create(convidados): Observable<Convidados> {
     return this.http.post<Convidados>(this.apiServer + '/convidados/', JSON.stringify(convidados), this.httpOptions)
     .pipe(

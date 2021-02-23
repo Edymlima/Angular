@@ -1,5 +1,21 @@
-<p>edit works!</p>
+<section class="container wrap">
+  <h3>Edit Convidados</h3>
+</section>
 
-<span>Id selecionado {{selectId}}</span> <br><br>
+<section  class="container flex-end">
+  <form [formGroup]="frmConvidado" (ngSubmit)="salvarConvidado()">
+      <div class="form-group">
+          <label>Id</label>
+          <input type="text" formControlName="id" class="form-control item" maxlength="20">
+      </div>
+      <div class="form-group">
+          <label>Nome</label>
+          <input class="form-control item" formControlName="nome" rows="3" maxlength="50"/>
+      </div>
+      <br>
+      <a routerLink='/home' routerLinkActive ><img src="../../../assets/img/navigate.png"></a>
+      <a type="submit"><img src="../../../assets/img/post.png"></a>
+  </form>
+</section>
 
-<button routerLink='/home' routerLinkActive>Voltar</button>
+

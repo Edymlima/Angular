@@ -1,5 +1,7 @@
+import { ConvidadoService } from './../services/convidado.service';
+import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit',
@@ -9,15 +11,39 @@ import { ActivatedRoute } from '@angular/router';
 export class EditComponent implements OnInit {
 
   selectId: number = 0;
-
+  frmConvidado: FormGroup;
   convidado = {};
 
-  constructor(private parametro : ActivatedRoute) { }
+  constructor(
+    private parametro : ActivatedRoute,
+    private fb: FormBuilder,
+    private convidadoService: ConvidadoService,
+    private router: Router
+    ) {
+      this.frmConvidado = this.fb.group({
+        id: [''],
+        nome: ['']
+      });
+    }
+
 
   ngOnInit(): void {
       this.parametro.params.subscribe(id => {
        this.selectId = id.id;
       })
+
+      this.convidadoService.getId(this.selectId).subscribe(dados =>{
+        console.log(dados);
+        this.frmConvidado.setValue(dados);
+      })
+
+  }
+
+  salvarConvidado(){
+      this.convidadoService.update(this.selectId, this.frmConvidado.value).subscribe(res=>{
+        console.log(res);
+        this.router.navigateByUrl('home');
+      });
   }
 
 }

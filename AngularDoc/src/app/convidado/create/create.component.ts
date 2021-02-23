@@ -2,6 +2,7 @@ import { ConvidadoService } from './../services/convidado.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-create',
@@ -27,10 +28,10 @@ export class CreateComponent implements OnInit {
 
   salveConvidado() {
     this.convidadoService.create(this.frmConvidado.value).subscribe(res => {
-      console.log('ok!')
-      this.router.navigateByUrl('/head')
-
+      tap(v=>(console.log(v = res.nome)));
+      alert(" Novo convidado cadastrado " + res.nome);
+      this.router.navigateByUrl('home');
   });
 
 }
-
+}
