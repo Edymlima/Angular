@@ -1,3 +1,4 @@
+import { SnackBarAlertService } from './../../shared/service/snackBarAlert.service';
 import { ConvidadoService } from './../services/convidado.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -14,7 +15,9 @@ export class CreateComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private convidadoService: ConvidadoService  ) { }
+    private convidadoService: ConvidadoService,
+    private sn : SnackBarAlertService
+    ) { }
 
   frmConvidado: FormGroup;
 
@@ -26,10 +29,10 @@ export class CreateComponent implements OnInit {
     });
   }
 
-  salveConvidado() {
+  salvaConvidado() {
     this.convidadoService.create(this.frmConvidado.value).subscribe(res => {
       tap(v=>(console.log(v = res.nome)));
-      alert(" Novo convidado cadastrado " + res.nome);
+      this.sn.showMensage("O convidado " + res.nome + " cadastrado com sucesso!");
       this.router.navigateByUrl('home');
   });
 

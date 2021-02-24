@@ -1,6 +1,14 @@
 import { ConvidadoService } from './../services/convidado.service';
 import { Convidados } from './../model/convidado';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+
+export interface GithubApi {
+  items: Convidados[];
+  total_count: number;
+}
 
 @Component({
   selector: 'app-list',
@@ -9,8 +17,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  listas : Convidados[] = [];
+  displayedColumns: string[] = ['id', 'nome', 'acao'];
+  dataSource = new MatTableDataSource<Convidados>();
+  acaoid : number;
+  isDone = false ;
 
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
 
   constructor(private convidadoService: ConvidadoService) { }
 
@@ -18,9 +31,29 @@ export class ListComponent implements OnInit {
 
     this.convidadoService.getAll().subscribe((data : Convidados[])=>{
       console.log(data);
-      this.listas = data;
+      this.dataSource = new MatTableDataSource<Convidados>(data);
+      this.dataSource.sort = this.sort;
+      this.dataSource.paginator = this.paginator;
+      this.validaIsDone(data)
     })
 
+  }
+
+  validaIsDone(data){
+    if (data.length > 0){
+      this.isDone = true;
+    }else{
+      this.isDone = false;
+    }
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  getIdTable(id : number){
+    this.acaoid = id;
   }
 
 }

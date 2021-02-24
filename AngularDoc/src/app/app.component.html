@@ -1,3 +1,26 @@
+<mat-toolbar>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+   <mat-icon>menu</mat-icon>
+ </button>
+ <span>App Convidados</span>
+ <span class="toolbar-spacer"></span>
+ <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+   <mat-icon>favorite</mat-icon>
+ </button>
+ <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+  <mat-icon>share</mat-icon>
+</button>
+</mat-toolbar>
 
-<button routerLink="/home" routerLinkActive>Iniciar</button>
-<router-outlet></router-outlet>
+<mat-drawer-container class="side-container">
+  <mat-drawer mode="side" opened>
+    <p><button mat-icon-button routerLink="/" routerLinkActive  ><mat-icon>home</mat-icon></button></p>
+    <p><button mat-icon-button routerLink="/home" routerLinkActive  ><mat-icon>menu</mat-icon></button></p>
+
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+

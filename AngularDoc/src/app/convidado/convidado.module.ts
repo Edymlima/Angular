@@ -1,3 +1,5 @@
+import { SharedModule } from './../shared/service/shared.module';
+import { MaterialModule } from './../shared/material-module';
 import { ConvidadoRoutes } from './convidado.routing';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -17,7 +19,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     ConvidadoRoutes,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MaterialModule,
+    FormsModule,
+    SharedModule
   ]
 })
 export class ConvidadoModule { }

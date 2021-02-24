@@ -1,6 +1,8 @@
+import { SnackBarAlertService } from './../../shared/service/snackBarAlert.service';
 import { ConvidadoService } from './../services/convidado.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-del',
@@ -10,10 +12,12 @@ import { Component, OnInit } from '@angular/core';
 export class DelComponent implements OnInit {
 
   selectId : number = 0;
+
   constructor(
     private parametro : ActivatedRoute,
     private router: Router,
-    private convidadoService: ConvidadoService
+    private convidadoService: ConvidadoService,
+    private sn : SnackBarAlertService
 
     ) { }
 
@@ -26,7 +30,7 @@ export class DelComponent implements OnInit {
 
   deleteConvidado(){
     this.convidadoService.delete(this.selectId).subscribe(dados=>{
-      alert("convidado codigo = " + this.selectId + " excluído! "),
+      this.sn.showMensage("O convidado foi exluido com sucesso!")
       this.router.navigateByUrl('home');
   });
   }

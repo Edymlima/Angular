@@ -3,22 +3,54 @@
 <p><img routerLink="/create" src="../../../assets/img/add.png"></p>
 
 
-<table border="0">
+<div class="mat-elevation-z8">
 
- <th>Id</th>
- <th>Nome</th>
- <th colSpan="2" align='center'>Ação</th>
+  <ng-template [ngIf]="isDone" [ngIfElse]="elseBlock">
 
+    <mat-form-field>
+      <mat-label>Filtro</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. nome" #input>
+    </mat-form-field>
 
-    <tr *ngFor="let lista of listas" >
-      <td>{{lista.id}}</td>
-      <td width="100px">{{lista.nome}}</td>
-      <td>
-        <a routerLink="/edit/{{lista.id}}" routerLinkActive > <img src="../../../assets/img/edit.png"> </a>
-      </td>
-      <td>
-        <a routerLink="/del/{{lista.id}}" routerLinkActive > <img src="../../../assets/img/excluir.png"> </a>
-      </td>
-    </tr>
+    <table mat-table [dataSource]="dataSource" matSort>
 
-</table>
+      <!-- Position Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Id. </th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
+        <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="acao">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element" [matMenuTriggerFor]="menu" (click)="getIdTable(element.id)">
+          <mat-icon>more_vert</mat-icon>
+        </td>
+
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </ng-template>
+
+</div>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item routerLink="/edit/{{acaoid}}" routerLinkActive><img src="../../../assets/img/edit.png"> Editar </button>
+  <button mat-menu-item routerLink="/del/{{acaoid}}" routerLinkActive><img src="../../../assets/img/excluir.png">  Excluir</button>
+</mat-menu>
+
+<ng-template #elseBlock>
+  <div class="semStado">
+     <img src="../../../assets/img/svg/undraw_Astronaut_re_8c33.svg" class="item">
+  </div>
+</ng-template>

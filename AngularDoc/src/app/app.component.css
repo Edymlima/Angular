@@ -1,0 +1,21 @@
+*{
+  margin: 0;
+}
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.side-container {
+  width: 99.9%;
+  height: 92%;
+  margin: 2px;
+
+}
+
+.mat-drawer-content{
+  padding: 15px;
+}
+
+.mat-drawer{
+  padding: 10px;
+}

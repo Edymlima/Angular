@@ -1,3 +1,4 @@
+import { SnackBarAlertService } from './../../shared/service/snackBarAlert.service';
 import { ConvidadoService } from './../services/convidado.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -18,6 +19,7 @@ export class EditComponent implements OnInit {
     private parametro : ActivatedRoute,
     private fb: FormBuilder,
     private convidadoService: ConvidadoService,
+    private sn : SnackBarAlertService,
     private router: Router
     ) {
       this.frmConvidado = this.fb.group({
@@ -42,6 +44,7 @@ export class EditComponent implements OnInit {
   salvarConvidado(){
       this.convidadoService.update(this.selectId, this.frmConvidado.value).subscribe(res=>{
         console.log(res);
+        this.sn.showMensage("Convidado " + res.nome + " editado com sucesso!");
         this.router.navigateByUrl('home');
       });
   }
