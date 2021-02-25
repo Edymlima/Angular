@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment';
 import { Convidados } from '../model/convidado';
 import { Observable } from 'rxjs';
 import {  throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
+import { catchError, delay } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +21,7 @@ export class ConvidadoService {
   getAll(): Observable<Convidados[]> {
     return this.http.get<Convidados[]>(this.apiServer + '/convidados/')
     .pipe(
+      delay(1000),
       catchError(this.errorHandler)
     )
   }

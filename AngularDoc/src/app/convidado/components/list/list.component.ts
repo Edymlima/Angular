@@ -1,5 +1,5 @@
-import { ConvidadoService } from './../services/convidado.service';
-import { Convidados } from './../model/convidado';
+import { ConvidadoService } from '../../services/convidado.service';
+import { Convidados } from '../../model/convidado';
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -21,6 +21,7 @@ export class ListComponent implements OnInit {
   dataSource = new MatTableDataSource<Convidados>();
   acaoid : number;
   isDone = false ;
+  isLoading = true;
 
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -35,6 +36,7 @@ export class ListComponent implements OnInit {
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
       this.validaIsDone(data)
+      this.isLoading = false;
     })
 
   }

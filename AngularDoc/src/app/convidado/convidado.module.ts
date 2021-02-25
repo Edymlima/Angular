@@ -1,23 +1,31 @@
+import { ListComponent } from './components/list/list.component';
+import { CreateComponent } from './components/create/create.component';
+import { EditComponent } from './components/edit/edit.component';
+import { DelComponent } from './components/del/del.component';
 import { SharedModule } from './../shared/service/shared.module';
 import { MaterialModule } from './../shared/material-module';
-import { ConvidadoRoutes } from './convidado.routing';
+import { ConvidadoRoutesModule } from './convidado.routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeadComponent } from './head/head.component';
-import { ListComponent } from './list/list.component';
-import { EditComponent } from './edit/edit.component';
-import { HomeComponent } from './home/home.component';
-import { DelComponent } from './del/del.component';
-import { CreateComponent } from './create/create.component';
+import { HeadComponent } from './template/head/head.component';
+import { HomeComponent } from './template/home/home.component';
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
 @NgModule({
-  declarations: [HeadComponent, ListComponent, EditComponent, HomeComponent, DelComponent, CreateComponent],
+  declarations: [
+    HeadComponent,
+    ListComponent,
+    CreateComponent,
+    HomeComponent,
+    EditComponent,
+    DelComponent
+    ],
   imports: [
     CommonModule,
-    ConvidadoRoutes,
+    ConvidadoRoutesModule,
     FormsModule,
     ReactiveFormsModule,
     MaterialModule,

@@ -1,5 +1,5 @@
-import { SnackBarAlertService } from './../../shared/service/snackBarAlert.service';
-import { ConvidadoService } from './../services/convidado.service';
+import { SnackBarAlertService } from '../../../shared/service/snackBarAlert.service';
+import { ConvidadoService } from '../../services/convidado.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';

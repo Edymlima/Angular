@@ -1,5 +1,5 @@
-import { SnackBarAlertService } from './../../shared/service/snackBarAlert.service';
-import { ConvidadoService } from './../services/convidado.service';
+import { SnackBarAlertService } from '../../../shared/service/snackBarAlert.service';
+import { ConvidadoService } from '../../services/convidado.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
