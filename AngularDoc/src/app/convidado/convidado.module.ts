@@ -7,8 +7,7 @@ import { MaterialModule } from './../shared/material-module';
 import { ConvidadoRoutesModule } from './convidado.routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeadComponent } from './template/head/head.component';
-import { HomeComponent } from './template/home/home.component';
+
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -16,10 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    HeadComponent,
     ListComponent,
     CreateComponent,
-    HomeComponent,
     EditComponent,
     DelComponent
     ],

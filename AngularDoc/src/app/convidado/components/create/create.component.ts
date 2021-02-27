@@ -33,7 +33,7 @@ export class CreateComponent implements OnInit {
     this.convidadoService.create(this.frmConvidado.value).subscribe(res => {
       tap(v=>(console.log(v = res.nome)));
       this.sn.showMensage("O convidado " + res.nome + " cadastrado com sucesso!");
-      this.router.navigateByUrl('home');
+      this.router.navigateByUrl('list');
   });
 
 }

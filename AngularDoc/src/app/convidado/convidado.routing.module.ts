@@ -1,16 +1,19 @@
+import { ListComponent } from './components/list/list.component';
+import { ContainerComponent } from './../template/components/container/container.component';
 import { CreateComponent } from './components/create/create.component';
 import { DelComponent } from './components/del/del.component';
-import { HomeComponent } from './template/home/home.component';
 import { EditComponent } from './components/edit/edit.component';
-import { HeadComponent } from './template/head/head.component';
 import { Routes, RouterModule } from '@angular/router';
+import { listenerCount } from 'process';
 
 const routes: Routes = [
-  { path:'', component:HeadComponent },
+
+  { path:'', component: ListComponent },
   { path:'create', component: CreateComponent },
   { path:'edit/:id', component:EditComponent },
   { path:'del/:id', component:DelComponent },
-  { path:'home', component:HomeComponent },
+  { path:'list', component:ListComponent },
+
 ];
 
 export const ConvidadoRoutesModule = RouterModule.forChild(routes);

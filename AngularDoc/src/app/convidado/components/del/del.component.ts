@@ -31,7 +31,7 @@ export class DelComponent implements OnInit {
   deleteConvidado(){
     this.convidadoService.delete(this.selectId).subscribe(dados=>{
       this.sn.showMensage("O convidado foi exluido com sucesso!")
-      this.router.navigateByUrl('home');
+      this.router.navigateByUrl('list');
   });
   }
 

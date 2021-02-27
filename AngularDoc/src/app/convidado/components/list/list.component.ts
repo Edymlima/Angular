@@ -1,6 +1,6 @@
 import { ConvidadoService } from '../../services/convidado.service';
 import { Convidados } from '../../model/convidado';
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -16,6 +16,8 @@ export interface GithubApi {
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
   displayedColumns: string[] = ['id', 'nome', 'acao'];
   dataSource = new MatTableDataSource<Convidados>();
@@ -23,23 +25,27 @@ export class ListComponent implements OnInit {
   isDone = false ;
   isLoading = true;
 
-  @ViewChild(MatSort) sort: MatSort;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor(private convidadoService: ConvidadoService) { }
+
+  constructor(private convidadoService: ConvidadoService) {
+
+   }
 
   ngOnInit(): void {
 
     this.convidadoService.getAll().subscribe((data : Convidados[])=>{
       console.log(data);
       this.dataSource = new MatTableDataSource<Convidados>(data);
-      this.dataSource.sort = this.sort;
+
       this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+
       this.validaIsDone(data)
       this.isLoading = false;
     })
 
   }
+
 
   validaIsDone(data){
     if (data.length > 0){

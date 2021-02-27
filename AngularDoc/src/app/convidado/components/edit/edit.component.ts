@@ -45,7 +45,7 @@ export class EditComponent implements OnInit {
       this.convidadoService.update(this.selectId, this.frmConvidado.value).subscribe(res=>{
         console.log(res);
         this.sn.showMensage("Convidado " + res.nome + " editado com sucesso!");
-        this.router.navigateByUrl('home');
+        this.router.navigateByUrl('list');
       });
   }
 

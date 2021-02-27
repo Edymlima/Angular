@@ -1,11 +1,14 @@
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { MaterialModule } from './shared/material-module';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  { path:"home", loadChildren: ()=> import('./convidado/convidado.module').then(m => m.ConvidadoModule) },
-  { path: '',redirectTo: '', pathMatch: 'full' }
+      {path:'', component:DashboardComponent},
+      {path:'dashboard', component:DashboardComponent},
+      {path:'convidado', loadChildren: ()=>import('./convidado/convidado.module').then(m=> m.ConvidadoModule)}
+
 ];
 
 @NgModule({

@@ -2,27 +2,11 @@
   "convidados": [
     {
       "id": "1",
-      "nome": "Miguelito"
+      "nome": "teste"
     },
     {
       "id": "2",
-      "nome": "Luciana Lima de sousa"
-    },
-    {
-      "id": "15",
-      "nome": "yepboi boi boi boi"
-    },
-    {
-      "id": "151",
-      "nome": "Jorginho cabeção cearense"
-    },
-    {
-      "id": "25",
-      "nome": "Luciana cara de banana com canela"
-    },
-    {
-      "id": "35",
-      "nome": "teste internet top vivo"
+      "nome": "edilberto"
     }
   ]
 }
