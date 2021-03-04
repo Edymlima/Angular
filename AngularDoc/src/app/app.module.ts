@@ -1,7 +1,8 @@
-import { TemplateModule } from './template/template.module';
+import { RouterModule } from '@angular/router';
+import { TemplateModule } from './core/template/template.module';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from './shared/material-module';
-import { ConvidadoModule } from './convidado/convidado.module';
+import { ConvidadoModule } from './modules/convidado/convidado.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -9,7 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
@@ -37,7 +38,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
-    LayoutModule
+    LayoutModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -12,14 +12,26 @@ export class SnackBarAlertService {
 
 constructor(private snackBar : MatSnackBar) { }
 
-showMensage(msn:string){
+showMensage(msn:string, colorPanel?: string){
   this.snackBar.open(
     msn,
     "x", {
       duration: 2500,
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
+      panelClass: [colorPanel]
+
     });
 }
 
 }
+
+/******************
+ * Calss Painel
+ ******************
+ * successPanel
+ * dangerPanel
+ * WarningPanel
+ *
+ *
+ */
